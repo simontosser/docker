@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  zookeeper:
+    image: zookeeper
+    restart: always
+
+  kafka:
+    depends_on:
+      - zookeeper
+    image: kafka
+    ports:
+      - 9092:9092
+      - 9093:9093
+    restart: always
